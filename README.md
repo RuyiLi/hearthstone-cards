@@ -2,9 +2,8 @@
 A module to fetch hearthstone card information using the HearthstoneJSON API.
 
 ## Usage
-```
-hearthstone(filters, collectible = true)
-```
+`hearthstone(filters, collectible = true)`
+
 Returns a Promise of an array of objects.
 
 `filters` - Filters that specify which cards to find. For example, `hearthstone({ "cost": 10 })` will produce an array of all collectible cards that cost 10 mana. For more information, click [here](https://hearthstonejson.com/).
