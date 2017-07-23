@@ -16,7 +16,7 @@ This is an example of fetching all cards with the given filters:
 - Belongs to the Journey to Un'Goro expansion
 - Legendary rarity
 ```
-const hearthstone = require("./hearthstone.js");
+const hearthstone = require("hearthstone-cards");
 
 hearthstone({
     "cost": 6,
