@@ -1,30 +1,12 @@
-const snekfetch = require("snekfetch");
+const fetch = require('node-fetch');
 
-module.exports = async function(filters, collectible = true){
-    //const { id, name, attack, health, cardClass, collectible, cost, elite, faction, mechanics, rarity, type } = filters
-    try{
-        const res = await snekfetch.get(`https://api.hearthstonejson.com/v1/20022/enUS/cards${collectible ? '.collectible' : ''}.json`);
-        const data = JSON.parse(res.text);
-        let cards = [];
+let cards;
 
-        for(let i = 0; i < data.length; i++){
-            const card = data[i];
-            let match = true;
+module.exports = async function (filters, collectible = true) {
+    if (typeof cards === 'undefined')
+        cards = await fetch(`https://api.hearthstonejson.com/v1/20022/enUS/cards${ collectible ? '.collectible' : '' }.json`).then(res => res.json());
 
-            for(let j = 0; j < Object.keys(filters).length; j++){
-                let filter = Object.keys(filters)[j];
-                if(filter){
-                    if(card[filter] !== filters[filter]) match = false;
-                }else{
-                    match = false;
-                }
-            }
-            if(match) cards.push(data[i]);
-        }
-
-        if(cards.length > 0) return cards;
-        else throw new Error("Could not find a card with the specified filters!");
-    } catch(err) {
-        throw err;
-    }
+    return cards.filter((card) =>
+        Object.entries(filters).every(([ filter, value ]) => card[ filter ] === value)
+    );
 }

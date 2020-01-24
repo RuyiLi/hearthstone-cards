@@ -1,11 +1,11 @@
-const hearthstone = require("./hearthstone.js");
+const hearthstone = require('./hearthstone.js');
 
 hearthstone({
-    "cost": 6,
-    "set": "UNGORO",
-    "rarity": "LEGENDARY"
+    'cost': 5,
+    'set': 'UNGORO',
+    'rarity': 'LEGENDARY'
 }).then(cards => {
-    cards.forEach(card => {
-        console.log(`${card.name} - ${card.text.replace(/\n/g, " ")} [ATK ${card.attack} HP ${card.health}]`);
-    });
+    for (const card of cards) {
+        console.log(`${ card.name } [ATK ${ card.attack } HP ${ card.health }]\n${ card.text }`);
+    }
 }).catch(console.error);

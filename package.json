@@ -1,0 +1,27 @@
+{
+  "name": "hearthstone-cards",
+  "version": "2.0.0",
+  "description": "A module to fetch hearthstone card information using the HearthstoneJSON API.",
+  "main": "hearthstone.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruyili/hearthstone-cards.git"
+  },
+  "keywords": [
+    "hearthstone",
+    "card",
+    "hearthstonejson"
+  ],
+  "author": "Ruyi Li",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruyili/hearthstone-cards/issues"
+  },
+  "homepage": "https://github.com/ruyili/hearthstone-cards#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}
